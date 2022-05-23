@@ -1,22 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { ServicesComponent } from './services/services.component';
-import { HomeComponent } from './home/home.component';
 
+// tutorial dasar-1
+// import { ServicesComponent } from './services/services.component';
+// import { HomeComponent } from './home/home.component';
+
+// const routes: Routes = [
+//   {
+//     path: 'services',
+//     component: ServicesComponent,
+//   },
+//   {
+//     path: 'home',
+//     component: HomeComponent,
+//   },
+//   {
+//     path: '',
+//     redirectTo: 'home',
+//     pathMatch: 'full',
+//   },
+// ];
 const routes: Routes = [
   {
-    path: 'services',
-    component: ServicesComponent,
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: 'admin',
+    loadChildren: () =>
+      import('./administrator/administrator.module').then(
+        (mod) => mod.AdministratorModule
+      ),
   },
 ];
 @NgModule({
